@@ -26,7 +26,7 @@ public class StarterController {
 
     // Execute a workflow waiting for it to complete.
     String greeting = workflow.getGreeting(greet);
-    System.out.println(greeting);
+    System.out.println("Returned output from parent workflow: "+greeting);
     return greeting;
   }
 

@@ -7,11 +7,14 @@ import utilties.Constants;
 import workflow.implementation.GreetingWorkflowImpl;
 
 @SpringBootApplication
-public class WorkflowApp {
+public class GreetingsWorkflowWorkerApp {
 
   public static void main(String[] args) {
-    SpringApplication.run(WorkflowApp.class, args);
+    SpringApplication.run(GreetingsWorkflowWorkerApp.class, args);
+    greetingsWorkflowWorker();
+  }
 
+  private static void greetingsWorkflowWorker() {
     // Start a worker that hosts only workflow
     Worker.Factory factory = new Worker.Factory(Constants.DOMAIN_SAMPLE);
     Worker worker = factory.newWorker(Constants.TASK_LIST);

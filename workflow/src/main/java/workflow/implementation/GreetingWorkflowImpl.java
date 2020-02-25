@@ -21,22 +21,23 @@ public class GreetingWorkflowImpl implements GreetingWorkflow {
   @Override
   public String getGreeting(String name) {
 
-    // Workflows are stateful. So a new stub must be created for each new child.
-    //JapaneseGreetingWorkflow child = Workflow.newChildWorkflowStub(JapaneseGreetingWorkflow.class);
-//    activities.triggerChildWorkflow(name, "Japanese");
-    // This is a non blocking call that returns immediately.
-    // Use child.composeGreeting("Hello", name) to call synchronously.
+    System.out.println("Starting Parent Worflow: name = " + name);
+     //Workflows are stateful. So a new stub must be created for each new child.
+    JapaneseGreetingWorkflow child = Workflow.newChildWorkflowStub(JapaneseGreetingWorkflow.class);
+    //activities.triggerChildWorkflow(name, "Japanese");
+     //This is a non blocking call that returns immediately.
+     //Use child.composeGreeting("Hello", name) to call synchronously.
     //to detach workflow :https://app.slack.com/client/TB70E9VJQ/CL22WDF70/thread/CM29NND28-1571693950.024500
-    //Promise<String> greeting = Async.function(child::getGreeting, name);
+    Promise<String> greeting = Async.function(child::getGreeting, name);
 
     // Do something else here.
     // This is a blocking call that returns only after the activity has completed.
     String englishGreeting = activities.composeGreeting("Hello", name, "English");
 
-    //String japanGreeting = greeting.get(); // blocks waiting for the child to complete.
+    String japanGreeting = greeting.get(); // blocks waiting for the child to complete.
 
-    //return englishGreeting + "\n" + japanGreeting;
-    return englishGreeting;
+    return englishGreeting + "\n" + japanGreeting;
+    //return englishGreeting;
   }
 }
 
