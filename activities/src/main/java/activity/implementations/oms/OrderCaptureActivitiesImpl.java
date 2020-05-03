@@ -14,6 +14,8 @@ public class OrderCaptureActivitiesImpl implements OrderCaptureActivities {
     System.out.printf("Invoking createOrder service here...");
     try {
       Thread.sleep(1000);
+
+      //Call order capture
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

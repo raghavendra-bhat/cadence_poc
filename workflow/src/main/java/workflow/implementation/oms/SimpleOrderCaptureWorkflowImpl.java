@@ -34,7 +34,7 @@ public class SimpleOrderCaptureWorkflowImpl implements SimpleOrderCaptureWorkflo
    * @return
    */
   @Override
-  public String createYantriksSimpleOrderCaptureWorkflow(String orderNo, String orderJson) {
+  public String executeYantriksSimpleOrderCaptureWorkflow(String orderNo, String orderJson) {
     System.out.println("[OC WFW]Started createYantriksSimpleOrderCaptureWorkflow:: orderNo = " + orderNo + ", orderJson = " + orderJson+"\n");
 
     System.out.printf("[OC WFW]Invoke Create Order Activity \n");

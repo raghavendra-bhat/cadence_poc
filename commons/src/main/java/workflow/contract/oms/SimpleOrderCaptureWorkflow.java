@@ -13,7 +13,7 @@ public interface SimpleOrderCaptureWorkflow {
 
   /** @return Workflow interface that defines Yantriks OMS order capture */
   @WorkflowMethod(executionStartToCloseTimeoutSeconds = 300, taskList = Constants.ORDER_CAPTURE_TASK_LIST)
-  String createYantriksSimpleOrderCaptureWorkflow(String orderNo, String orderJson);
+  String executeYantriksSimpleOrderCaptureWorkflow(String orderNo, String orderJson);
 
   default String getDate(){
     DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");

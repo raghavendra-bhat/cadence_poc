@@ -23,7 +23,7 @@ public class OmsWorkflowStarterController {
     // Get a workflow stub using the same task list the worker uses.
     SimpleOrderCaptureWorkflow workflow = workflowClient.newWorkflowStub(SimpleOrderCaptureWorkflow.class);
 
-    String retOrderNo = workflow.createYantriksSimpleOrderCaptureWorkflow(orderNo, orderJson);
+    String retOrderNo = workflow.executeYantriksSimpleOrderCaptureWorkflow(orderNo, orderJson);
     System.out.println("Returned output from simple order capture workflow: "+retOrderNo);
     return retOrderNo;
   }
